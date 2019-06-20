@@ -14,7 +14,7 @@ class UserIPInfo(models.Model):
 
 
 class BrowerInfo(models.Model):
-    useragent = models.CharField(max_length=100,default='test',verbose_name=u'agent',null=True)
+    useragent = models.TextField(max_length=254,default='test',verbose_name=u'agent',null=True)
     models.CharField(max_length=256,verbose_name=u'唯一设备ID',default='')
     userip = models.ForeignKey('UserIPInfo',on_delete=True)
     class Meta:
