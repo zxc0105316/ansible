@@ -14,7 +14,7 @@ class sendmail():
                       message =self.content_info,
                       from_email = '805403077@qq.com',
                       recipient_list = self.receive_addr,
-                      fail_sliently = False,
+                      fail_silently = False,
                       )
             return True
         except Exception as e:

@@ -5,7 +5,7 @@ from django.http import JsonResponse,HttpResponse
 from devops.models import  UserIPInfo,BrowerInfo
 import json
 from django.core.mail import send_mail
-
+from devops.util.tools import sendmail
 
 
 def user_info(request):
@@ -53,11 +53,7 @@ def user_history(request):
 
 
 
-def sendmail(request):
-    send_status = send_mail('1','2','805403077@qq.com',['1207025339@qq.com'],fail_silently=False)
-    print(send_status)
-    if send_status:
-        print("ok")
-        return HttpResponse("ok")
-    else:
-        print("false")
+def sendsmail(request):
+            sendm = sendmail(receive_addr=['1207025339@qq.com'],sub_info="1",content_info="2")
+            return HttpResponse(sendm.send())
+            send_mail

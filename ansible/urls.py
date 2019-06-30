@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path('^test/$',user_info),
     re_path('^getinfos$',user_history),
-    re_path('^mail$',sendmail),
+    re_path('^mail$',sendsmail),
 ]
