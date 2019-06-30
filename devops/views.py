@@ -2,8 +2,9 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.http import JsonResponse,HttpResponse
-from devops.models import *
+from devops.models import  UserIPInfo,BrowerInfo
 import json
+from django.core.mail import send_mail
 
 
 
@@ -34,3 +35,29 @@ def user_info(request):
     }
 
     return HttpResponse(json.dumps(result),content_type="application/json")
+
+
+def user_history(request):
+    ip_list = UserIPInfo.objects.all()
+    print('&&&&&&&&&&&&&&&&&&&&&&',ip_list)
+    infos = {}
+    for item in ip_list:
+
+        #   每一个ip对应的浏览器信息
+        infos[item.ip] = [b_obj.useragent for b_obj in BrowerInfo.objects.filter(userip_id=item.id)]
+        result = {
+            "status": "success",
+            "INFO":infos,
+        }
+    return HttpResponse(json.dumps(result),content_type="application/json")
+
+
+
+def sendmail(request):
+    send_status = send_mail('1','2','805403077@qq.com',['1207025339@qq.com'],fail_silently=False)
+    print(send_status)
+    if send_status:
+        print("ok")
+        return HttpResponse("ok")
+    else:
+        print("false")

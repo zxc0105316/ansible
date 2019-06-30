@@ -102,6 +102,38 @@ DATABASES = {
 
 
 
+# Email settings smtp/pop3
+#邮件服务器配置文件
+EMAIL_USE_SSL = True
+#邮件服务
+EMAIL_HOST = 'smtp.qq.com'
+#端口号
+EMAIL_PORT = 465
+#邮箱账号
+EMAIL_HOST_USER = '805403077@qq.com'
+#授权码
+EMAIL_HOST_PASSWORD = 'ckhkuhaaxlmubddc'
+#发送人
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+#
+# # logging
+#
+# LOGGING = {
+#
+#     'version':1,
+#     'disable_existing_loggers':False,
+#     'formatters':
+#         {
+#             'verbose':{
+#                 'format':'{}'
+#             }
+#         }
+#
+#
+# }
+
+
+
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
